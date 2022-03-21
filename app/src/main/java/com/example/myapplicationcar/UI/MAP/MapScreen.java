@@ -1,4 +1,4 @@
-package com.example.myapplicationcar.SCREENACCOUNT;
+package com.example.myapplicationcar.UI.MAP;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.myapplicationcar.R;
 
-public class ScreenSigin extends AppCompatActivity {
+public class MapScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_sigin);
+        setContentView(R.layout.activity_map_screen);
     }
 }

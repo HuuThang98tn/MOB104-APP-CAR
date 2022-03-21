@@ -10,10 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationCar">
         <activity
-            android:name=".SCREENACCOUNT.ScreenSigin"
+            android:name=".UI.SETTING.SettingScreen"
             android:exported="false" />
         <activity
-            android:name=".SCREENACCOUNT.ScreenLogin"
+            android:name=".UI.MAP.MapScreen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.HOME.HomeScreen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.SCREENACCOUNT.ScreenSigin"
+            android:exported="false" />
+        <activity
+            android:name=".UI.SCREENACCOUNT.ScreenLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
