@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141993881544",
+    "project_id": "mob104-auto-care",
+    "storage_bucket": "mob104-auto-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141993881544:android:9c60871b0ac00de78b5afd",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationcar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141993881544-uqtprcg9lv0t48rtk17qtl3e52ippree.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDicAQu_ODPdFdNokQlVi8LfH25XfJ0_f0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141993881544-uqtprcg9lv0t48rtk17qtl3e52ippree.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.myapplicationcar.UI.HOME.HomeScreen;
 import com.example.myapplicationcar.UI.SCREENACCOUNT.ScreenLogin;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(MainActivity.this, ScreenLogin.class)
+                    startActivity(new Intent(MainActivity.this, HomeScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
                 }

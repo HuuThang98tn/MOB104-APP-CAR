@@ -11,19 +11,24 @@ import android.widget.Toast;
 
 import com.example.myapplicationcar.R;
 import com.example.myapplicationcar.UI.MAP.MapScreen;
+import com.example.myapplicationcar.UI.SCREENACCOUNT.ScreenLogin;
 import com.example.myapplicationcar.UI.SETTING.SettingScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeScreen extends AppCompatActivity {
     private BottomNavigationView mBottomTab;
     private Toolbar mToolbar;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
         initUI();
 
         setup();
@@ -60,5 +65,15 @@ public class HomeScreen extends AppCompatActivity {
         mToolbar = findViewById(R.id.home_toolbar);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            startActivity(new Intent(HomeScreen.this, ScreenLogin.class));
+            finish();
+        }
+    }
 
 }
