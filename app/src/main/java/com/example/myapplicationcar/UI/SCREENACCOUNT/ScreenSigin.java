@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +62,8 @@ public class ScreenSigin extends AppCompatActivity {
             Toast.makeText(this, "Bạn cần nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         } else if (!isValidEmail(user)) {
             Toast.makeText(this, "Sai định dạng email!", Toast.LENGTH_SHORT).show();
+        } else if (pass.length() < 6 || rePass.length() < 6) {
+            Toast.makeText(this, "Mật khẩu tối thiểu 6 chữ số!", Toast.LENGTH_SHORT).show();
         } else if (!pass.equals(rePass)) {
             Toast.makeText(this, "Hai mật khẩu không trùng nhau!", Toast.LENGTH_SHORT).show();
         } else {
@@ -68,11 +71,11 @@ public class ScreenSigin extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), ScreenLogin.class));
                         finish();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Hai mật khẩu không trùng nhau!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Tạo tài khoản thất bại!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -80,7 +83,7 @@ public class ScreenSigin extends AppCompatActivity {
 
     }
 
-    public static boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         if (email != null) {
             Pattern p = Pattern.compile("^[A-Za-z].*?@gmail\\.com$");
             Matcher m = p.matcher(email);

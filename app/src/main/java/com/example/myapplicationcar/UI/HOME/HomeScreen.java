@@ -46,11 +46,11 @@ public class HomeScreen extends AppCompatActivity {
                     case R.id.action_home:
                         Toast.makeText(HomeScreen.this, "Đây là Home", Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.action_map:
+                    case R.id.action_history:
                         startActivity(new Intent(HomeScreen.this, MapScreen.class));
                         Toast.makeText(HomeScreen.this, "Đây là Map", Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.action_setting:
+                    case R.id.action_account:
                         startActivity(new Intent(HomeScreen.this, SettingScreen.class));
                         Toast.makeText(HomeScreen.this, "Đây là Setting", Toast.LENGTH_SHORT).show();
                         return true;
