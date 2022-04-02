@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationCar">
         <activity
-            android:name=".UI.SETTING.SettingScreen"
+            android:name=".UI.ACCOUNT.SettingScreen"
             android:exported="false" />
         <activity
-            android:name=".UI.MAP.MapScreen"
+            android:name=".UI.HISTORY.MapScreen"
             android:exported="false" />
         <activity
             android:name=".UI.HOME.HomeScreen"
@@ -25,7 +25,7 @@
             android:name=".UI.SCREENACCOUNT.ScreenLogin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.SPLASHSCREEN.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

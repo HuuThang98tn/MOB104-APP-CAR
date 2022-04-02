@@ -1,4 +1,4 @@
-package com.example.myapplicationcar.UI.MAP;
+package com.example.myapplicationcar.UI.HISTORY;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="230dp"
+    android:layout_marginLeft="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sl_img_service"
+            android:layout_width="170dp"
+            android:layout_height="116dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/sl_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sl_img_service" />
+
+        <TextView
+            android:id="@+id/sl_sub"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Từ"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sl_name" />
+
+        <TextView
+            android:id="@+id/sl_end_sub"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Đến"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sl_sub" />
+
+        <TextView
+            android:id="@+id/sl_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="TextView"
+            android:textColor="@color/monney"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/sl_sub"
+            app:layout_constraintStart_toEndOf="@+id/sl_sub"
+            app:layout_constraintTop_toTopOf="@+id/sl_sub" />
+
+        <TextView
+            android:id="@+id/sl_price_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="TextView"
+            android:textColor="@color/monney"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/sl_end_sub"
+            app:layout_constraintStart_toEndOf="@+id/sl_end_sub"
+            app:layout_constraintTop_toTopOf="@+id/sl_end_sub" />
+
+        <ImageView
+            android:id="@+id/sl_ratting"
+            android:layout_width="99dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sl_price_end"
+            app:srcCompat="@drawable/rating_0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
