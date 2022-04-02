@@ -14,4 +14,6 @@
     <color name="home_tb_bg">#51D36E</color>
     <color name="green_ct">#2EBF91</color>
     <color name="home_it_bg">#EFA7A7</color>
+    <color name="monney">#FF1744</color>
+    <color name="shimmer">#BFBDBD</color>
 </resources>

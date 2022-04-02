@@ -1,4 +1,4 @@
-package com.example.myapplicationcar.UI.SETTING;
+package com.example.myapplicationcar.UI.ACCOUNT;
 
 import androidx.appcompat.app.AppCompatActivity;
 

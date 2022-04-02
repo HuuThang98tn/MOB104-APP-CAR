@@ -8,13 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplicationcar.R;
 import com.example.myapplicationcar.UI.HOME.HomeScreen;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -30,6 +30,7 @@ public class ScreenLogin extends AppCompatActivity {
     private TextInputEditText edUser, edPass;
     private LinearLayout btnFb, btnGg;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +78,7 @@ public class ScreenLogin extends AppCompatActivity {
             });
         }
     }
-    public static boolean isValidEmail(String email) {
+    public boolean isValidEmail(String email) {
         if (email != null) {
             Pattern p = Pattern.compile("^[A-Za-z].*?@gmail\\.com$");
             Matcher m = p.matcher(email);

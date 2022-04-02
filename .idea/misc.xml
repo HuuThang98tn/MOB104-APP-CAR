@@ -12,12 +12,14 @@
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/drawable/ic_account_24.xml" value="0.1615" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/drawable/ic_remove_24.xml" value="0.1495" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/font/font.xml" value="0.2568947906026558" />
-        <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_home_screen.xml" value="0.15081521739130435" />
+        <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_home_screen.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_main.xml" value="0.15081521739130435" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_map_screen.xml" value="0.15081521739130435" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_screen_login.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_screen_sigin.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/activity_setting_screen.xml" value="0.264" />
+        <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/question_rv_item.xml" value="0.2" />
+        <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/question_rv_item_shimmer.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/menu/menu_bottom.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/activity_screen_login.xml" value="0.1" />

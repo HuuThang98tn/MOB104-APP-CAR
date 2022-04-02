@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UI.SETTING.SettingScreen"
+    tools:context=".UI.ACCOUNT.SettingScreen"
     android:gravity="bottom">
 
     <androidx.constraintlayout.widget.ConstraintLayout

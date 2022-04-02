@@ -12,15 +12,28 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-2dp"
-        android:background="@color/home_tb_bg"
-        app:titleTextColor="@color/white">
+        android:background="@color/white"
+        app:titleTextColor="@color/black">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginRight="18dp"
-            android:src="@drawable/img_user" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatarUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/img_df_user" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="@font/font"
+            android:text="Auto Care"
+            android:textColor="#000"
+            android:textSize="35sp"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -28,141 +41,67 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/home_bottomTab"
         android:layout_below="@+id/home_toolbar"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/btnSelect"
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:layout_marginHorizontal="22dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.5"
-                android:background="@color/home_it_bg"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/img_date" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="110dp"
-                android:layout_height="120dp"
-                android:layout_marginHorizontal="22dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.5"
-                android:background="@color/home_it_bg"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/img_history" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:orientation="horizontal"
-            android:weightSum="1">
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/question" />
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center"
-                android:text="Đặt lịch"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:text="Bảo dưỡng xe định kỳ"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center"
-                android:text="Lịch sử sửa chữa"
-                android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sf_loading"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:layout_height="250dp"
+            android:padding="8dp">
 
-            <LinearLayout
-                android:id="@+id/btnNew"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="22dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.5"
-                android:background="@color/home_it_bg"
-                android:gravity="center">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/img_news" />
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="22dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.5"
-                android:background="@color/home_it_bg"
-                android:gravity="center">
+                    <include layout="@layout/question_rv_item_shimmer" />
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="109dp"
-                    android:src="@drawable/img_seach" />
-            </LinearLayout>
-        </LinearLayout>
+                    <include layout="@layout/question_rv_item_shimmer" />
 
-        <LinearLayout
+                    <include layout="@layout/question_rv_item_shimmer" />
+
+                    <include layout="@layout/question_rv_item_shimmer" />
+
+                    <include layout="@layout/question_rv_item_shimmer" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSlider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center"
-                android:text="Giới thiệu"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center"
-                android:text="Tra cứu phụ tùng"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+            android:layout_height="250dp"
+            android:layout_marginHorizontal="8dp"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
