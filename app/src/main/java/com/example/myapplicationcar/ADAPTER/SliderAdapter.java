@@ -41,25 +41,27 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder
         Service service = listService.get(position);
         Slider slider = listSlider.get(position);
 
-        if (position == 0) {
-            holder.imgRate.setImageResource(R.drawable.rating_0);
-        } else if (position == 1) {
-            holder.imgRate.setImageResource(R.drawable.rating_1);
-        } else {
-            holder.imgRate.setImageResource(R.drawable.rating_2);
+        if (service != null && slider != null){
+            if (position == 0) {
+                holder.imgRate.setImageResource(R.drawable.rating_0);
+            } else if (position == 1) {
+                holder.imgRate.setImageResource(R.drawable.rating_1);
+            } else {
+                holder.imgRate.setImageResource(R.drawable.rating_2);
+            }
+
+            Glide.with(context).load(slider.getImageUrl()).error(R.drawable.img_err).into(holder.imgContent);
+
+            holder.tvName.setText(service.getName());
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            holder.tvPrice.setText(formatter.format(service.getPrice().get(0)) + " vnđ");
+            holder.tvEndPrice.setText(formatter.format(service.getPrice().get(1)) + " vnđ");
         }
-
-        Glide.with(context).load(slider.getImageUrl()).error(R.drawable.img_err).into(holder.imgContent);
-
-        holder.tvName.setText(service.getName());
-        DecimalFormat formatter = new DecimalFormat("###,###,###");
-        holder.tvPrice.setText(formatter.format(service.getPrice().get(0)) + " vnđ");
-        holder.tvEndPrice.setText(formatter.format(service.getPrice().get(1)) + " vnđ");
     }
 
     @Override
     public int getItemCount() {
-        return listService == null ? 0 : listService.size();
+        return listService != null ? listService.size() : 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

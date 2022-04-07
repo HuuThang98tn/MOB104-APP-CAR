@@ -23,10 +23,33 @@
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/question_rv_item.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/layout/question_rv_item_shimmer.xml" value="0.2" />
         <entry key="..\:/MOB104-APP-CAR/app/src/main/res/menu/menu_bottom.xml" value="0.2234375" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/btn_done.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/btn_login.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/btn_next.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/btn_register.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/custom_bt_active.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/custom_bt_color.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/custom_or.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/custom_step.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/ic_arrow_right.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/ic_car_24.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/ic_home_24.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/ic_home_24_black.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/drawable/ic_home_endble.xml" value="0.1515" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_history_screen.xml" value="0.17028985507246377" />
         <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_home_screen.xml" value="0.264" />
         <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_information_screen.xml" value="0.17028985507246377" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_map_screen.xml" value="0.17028985507246377" />
         <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_screen_login.xml" value="0.17028985507246377" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_service_screen.xml" value="0.1" />
         <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/activity_setting_screen.xml" value="0.16458333333333333" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/fragment_infor.xml" value="0.17028985507246377" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/fragment_money_service.xml" value="0.17028985507246377" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/fragment_service.xml" value="0.264" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/fragment_time_service.xml" value="0.264" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/item_spinner_ct.xml" value="0.1634963768115942" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/layout/page_step_custom.xml" value="0.264" />
+        <entry key="..\:/MOB104/MOB104-APP-CAR/app/src/main/res/menu/menu_bottom.xml" value="0.2234375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/activity_screen_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_screen_sigin.xml" value="0.21965579710144928" />

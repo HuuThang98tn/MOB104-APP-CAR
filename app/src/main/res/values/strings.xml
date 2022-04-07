@@ -2,8 +2,16 @@
     <string name="app_name">Auto Care</string>
 
     <string name="action_home">Trang chủ</string>
-    <string name="action_map">Map</string>
+    <string name="action_history">Lịch sử</string>
     <string name="action_setting">Cài đặt</string>
 
+    <string-array name="titlle">
+        <item>Dịch vụ</item>
+        <item>Thông tin</item>
+        <item>Thời gian</item>
+        <item>Chi phí</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

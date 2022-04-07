@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,8 +25,9 @@ import com.example.myapplicationcar.MODEL.Service;
 import com.example.myapplicationcar.MODEL.Slider;
 import com.example.myapplicationcar.R;
 import com.example.myapplicationcar.UI.ACCOUNT.InformationScreen;
-import com.example.myapplicationcar.UI.HISTORY.MapScreen;
+import com.example.myapplicationcar.UI.HISTORY.HistoryScreen;
 import com.example.myapplicationcar.UI.ACCOUNT.SettingScreen;
+import com.example.myapplicationcar.UI.SERVICE.ServiceScreen;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,6 +60,7 @@ public class HomeScreen extends AppCompatActivity {
     private List<Service> listService;
     private RecyclerView rvSlider;
     private LinearLayout menuService, menuHistory, menuCall, menuInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,25 +70,11 @@ public class HomeScreen extends AppCompatActivity {
 
         setup();
 
-        showUserInformation();
-
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mShimmerFrameLayout.stopShimmer();
-                mShimmerFrameLayout.setVisibility(View.GONE);
-                rvSlider.setVisibility(View.VISIBLE);
-
-                mShBanner.stopShimmer();
-                mShBanner.setVisibility(View.GONE);
-                imgBanner.setVisibility(View.VISIBLE);
-            }
-        }, 3000);
 
     }
 
     private void setup() {
+
         //Setting firestore
         db = FirebaseFirestore.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("slider");
@@ -101,7 +88,22 @@ public class HomeScreen extends AppCompatActivity {
         getMultipleData();
         addPostEventListener();
         getBanner();
+
         sliderAdapter = new SliderAdapter(listService, listSlider, this);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mShimmerFrameLayout.stopShimmer();
+                mShimmerFrameLayout.setVisibility(View.GONE);
+                rvSlider.setVisibility(View.VISIBLE);
+
+                mShBanner.stopShimmer();
+                mShBanner.setVisibility(View.GONE);
+                imgBanner.setVisibility(View.VISIBLE);
+            }
+        }, 2000);
+
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rvSlider.setLayoutManager(layoutManager);
@@ -114,18 +116,22 @@ public class HomeScreen extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_home:
-                        Toast.makeText(HomeScreen.this, "Đây là Home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.action_history:
-                        startActivity(new Intent(HomeScreen.this, MapScreen.class));
-                        Toast.makeText(HomeScreen.this, "Đây là Map", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(HomeScreen.this, HistoryScreen.class));
                         return true;
                     case R.id.action_account:
                         startActivity(new Intent(HomeScreen.this, SettingScreen.class));
-                        Toast.makeText(HomeScreen.this, "Đây là Setting", Toast.LENGTH_SHORT).show();
                         return true;
                 }
                 return false;
+            }
+        });
+
+        imgAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, SettingScreen.class));
             }
         });
 
@@ -143,7 +149,18 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mNumberPhone)));
             }
         });
-
+        menuHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, HistoryScreen.class));
+            }
+        });
+        menuService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, ServiceScreen.class));
+            }
+        });
     }
 
     private void initUI() {
@@ -161,6 +178,8 @@ public class HomeScreen extends AppCompatActivity {
 
         mShimmerFrameLayout.startShimmer();
         mShBanner.startShimmer();
+
+        showUserInformation();
     }
 
     private void showUserInformation() {
@@ -174,7 +193,7 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
-    public void getBanner(){
+    public void getBanner() {
         String photoUrl = "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Banner%2Fbanner_1.jpg?alt=media&token=f3bed712-8dba-4386-8602-45cbb9cacc8a";
 
         Glide.with(this).load(photoUrl).error(R.drawable.img_df_user).into(imgBanner);
@@ -217,7 +236,6 @@ public class HomeScreen extends AppCompatActivity {
                     listSlider.add(childDataSnapshot.getValue(Slider.class));
                 }
                 listSlider.sort(Comparator.comparing(Slider::getId));
-                Log.d("okiii", listSlider.toString());
             }
 
 

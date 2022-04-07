@@ -14,13 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationCar">
         <activity
+            android:name=".UI.SERVICE.ServiceScreen"
+            android:exported="false" />
+        <activity
             android:name=".UI.ACCOUNT.InformationScreen"
             android:exported="false" />
         <activity
             android:name=".UI.ACCOUNT.SettingScreen"
             android:exported="false" />
         <activity
-            android:name=".UI.HISTORY.MapScreen"
+            android:name=".UI.HISTORY.HistoryScreen"
             android:exported="false" />
         <activity
             android:name=".UI.HOME.HomeScreen"
