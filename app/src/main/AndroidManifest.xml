@@ -20,7 +20,7 @@
             android:name=".UI.ACCOUNT.SettingScreen"
             android:exported="false" />
         <activity
-            android:name=".UI.HISTORY.MapScreen"
+            android:name=".UI.HISTORY.HistoryScreen"
             android:exported="false" />
         <activity
             android:name=".UI.HOME.HomeScreen"

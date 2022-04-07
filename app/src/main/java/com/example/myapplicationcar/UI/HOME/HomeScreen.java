@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +25,7 @@ import com.example.myapplicationcar.MODEL.Service;
 import com.example.myapplicationcar.MODEL.Slider;
 import com.example.myapplicationcar.R;
 import com.example.myapplicationcar.UI.ACCOUNT.InformationScreen;
-import com.example.myapplicationcar.UI.HISTORY.MapScreen;
+import com.example.myapplicationcar.UI.HISTORY.HistoryScreen;
 import com.example.myapplicationcar.UI.ACCOUNT.SettingScreen;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -69,8 +68,6 @@ public class HomeScreen extends AppCompatActivity {
 
         setup();
 
-        showUserInformation();
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -83,11 +80,12 @@ public class HomeScreen extends AppCompatActivity {
                 mShBanner.setVisibility(View.GONE);
                 imgBanner.setVisibility(View.VISIBLE);
             }
-        }, 3000);
+        }, 2000);
 
     }
 
     private void setup() {
+
         //Setting firestore
         db = FirebaseFirestore.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("slider");
@@ -117,15 +115,20 @@ public class HomeScreen extends AppCompatActivity {
                         Toast.makeText(HomeScreen.this, "Đây là Home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.action_history:
-                        startActivity(new Intent(HomeScreen.this, MapScreen.class));
-                        Toast.makeText(HomeScreen.this, "Đây là Map", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(HomeScreen.this, HistoryScreen.class));
                         return true;
                     case R.id.action_account:
                         startActivity(new Intent(HomeScreen.this, SettingScreen.class));
-                        Toast.makeText(HomeScreen.this, "Đây là Setting", Toast.LENGTH_SHORT).show();
                         return true;
                 }
                 return false;
+            }
+        });
+
+        imgAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, SettingScreen.class));
             }
         });
 
@@ -143,7 +146,12 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mNumberPhone)));
             }
         });
-
+        menuHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, HistoryScreen.class));
+            }
+        });
     }
 
     private void initUI() {
@@ -161,6 +169,8 @@ public class HomeScreen extends AppCompatActivity {
 
         mShimmerFrameLayout.startShimmer();
         mShBanner.startShimmer();
+
+        showUserInformation();
     }
 
     private void showUserInformation() {
