@@ -12,10 +12,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +25,7 @@ import com.example.myapplicationcar.ADAPTER.SliderAdapter;
 import com.example.myapplicationcar.MODEL.Service;
 import com.example.myapplicationcar.MODEL.Slider;
 import com.example.myapplicationcar.R;
+import com.example.myapplicationcar.UI.ACCOUNT.InformationScreen;
 import com.example.myapplicationcar.UI.HISTORY.MapScreen;
 import com.example.myapplicationcar.UI.ACCOUNT.SettingScreen;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -48,15 +51,15 @@ import java.util.List;
 public class HomeScreen extends AppCompatActivity {
     private BottomNavigationView mBottomTab;
     private Toolbar mToolbar;
-    private ImageView imgAvatar;
+    private ImageView imgAvatar, imgBanner;
     private FirebaseFirestore db;
     private DatabaseReference mDatabase;
     private List<Slider> listSlider;
-    private ShimmerFrameLayout mShimmerFrameLayout;
+    private ShimmerFrameLayout mShimmerFrameLayout, mShBanner;
     private SliderAdapter sliderAdapter;
     private List<Service> listService;
     private RecyclerView rvSlider;
-
+    private LinearLayout menuService, menuHistory, menuCall, menuInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +78,10 @@ public class HomeScreen extends AppCompatActivity {
                 mShimmerFrameLayout.stopShimmer();
                 mShimmerFrameLayout.setVisibility(View.GONE);
                 rvSlider.setVisibility(View.VISIBLE);
+
+                mShBanner.stopShimmer();
+                mShBanner.setVisibility(View.GONE);
+                imgBanner.setVisibility(View.VISIBLE);
             }
         }, 3000);
 
@@ -93,7 +100,7 @@ public class HomeScreen extends AppCompatActivity {
 
         getMultipleData();
         addPostEventListener();
-
+        getBanner();
         sliderAdapter = new SliderAdapter(listService, listSlider, this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -122,16 +129,38 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        menuInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeScreen.this, InformationScreen.class));
+            }
+        });
+
+        menuCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mNumberPhone = "0385169494";
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mNumberPhone)));
+            }
+        });
+
     }
 
     private void initUI() {
         mBottomTab = findViewById(R.id.home_bottomTab);
         mToolbar = findViewById(R.id.home_toolbar);
         imgAvatar = findViewById(R.id.avatarUser);
+        imgBanner = findViewById(R.id.home_banner);
         mShimmerFrameLayout = findViewById(R.id.sf_loading);
+        mShBanner = findViewById(R.id.sf_banner);
         rvSlider = findViewById(R.id.rvSlider);
+        menuService = findViewById(R.id.menuService);
+        menuHistory = findViewById(R.id.menuHistory);
+        menuCall = findViewById(R.id.menuCall);
+        menuInfo = findViewById(R.id.menuInfo);
 
         mShimmerFrameLayout.startShimmer();
+        mShBanner.startShimmer();
     }
 
     private void showUserInformation() {
@@ -143,6 +172,12 @@ public class HomeScreen extends AppCompatActivity {
 
             Glide.with(this).load(photoUrl).error(R.drawable.img_df_user).into(imgAvatar);
         }
+    }
+
+    public void getBanner(){
+        String photoUrl = "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Banner%2Fbanner_1.jpg?alt=media&token=f3bed712-8dba-4386-8602-45cbb9cacc8a";
+
+        Glide.with(this).load(photoUrl).error(R.drawable.img_df_user).into(imgBanner);
     }
 
     public void getMultipleData() {
@@ -193,4 +228,5 @@ public class HomeScreen extends AppCompatActivity {
         };
         mDatabase.addValueEventListener(postListener);
     }
+
 }
