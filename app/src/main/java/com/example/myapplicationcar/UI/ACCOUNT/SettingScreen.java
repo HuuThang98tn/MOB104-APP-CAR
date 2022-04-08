@@ -24,9 +24,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.myapplicationcar.R;
 import com.example.myapplicationcar.UI.SCREENACCOUNT.ScreenLogin;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -66,6 +63,7 @@ public class SettingScreen extends AppCompatActivity {
     }
 
     // Tải ảnh lên cho user
+    // Ảnh nhỏ vl cho to lên tý
     void pickCamera() {
         mCamera.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
