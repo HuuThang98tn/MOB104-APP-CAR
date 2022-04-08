@@ -140,9 +140,6 @@ public class SettingScreen extends AppCompatActivity {
         mCallPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-//                Intent in = new Intent(Intent.ACTION_CALL, Uri.parse(mNumberPhone));
                 try {
                     if (!TextUtils.isEmpty(mNumberPhone)) {
                         startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mNumberPhone)));
