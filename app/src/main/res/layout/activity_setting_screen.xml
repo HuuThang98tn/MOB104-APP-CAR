@@ -35,48 +35,55 @@
         android:layout_below="@+id/home_toolbar"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint_1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avtUser"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="start|center_vertical"
+            android:src="@drawable/imager_user" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/camera_User"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            android:src="@drawable/ic_baseline_photo_camera_24">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/avtUser"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:layout_gravity="start|center_vertical"
-                android:src="@drawable/imager_user" />
+        </ImageView>
+    </LinearLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:id="@+id/camera_User"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_photo_camera_24">
-
-            </ImageView>
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -86,7 +93,7 @@
 
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+            app:layout_constraintStart_toEndOf="@+id/constraint_1"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
@@ -150,9 +157,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
-                android:text="Cập nhập email"
+                android:text="Cập nhập tên"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -183,7 +190,7 @@
                 android:layout_marginLeft="32dp"
                 android:text="Cập nhật mật khẩu"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -215,7 +222,7 @@
                 android:layout_marginLeft="32dp"
                 android:text="Thông tin"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -248,7 +255,7 @@
                 android:layout_marginLeft="32dp"
                 android:text="Liên hệ"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -280,7 +287,7 @@
                 android:layout_marginLeft="32dp"
                 android:text="Đăng xuất"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

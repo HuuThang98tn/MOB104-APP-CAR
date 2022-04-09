@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,23 +39,29 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Service service = listService.get(position);
-        Slider slider = listSlider.get(position);
 
-        if (position == 0) {
-            holder.imgRate.setImageResource(R.drawable.rating_0);
-        } else if (position == 1) {
-            holder.imgRate.setImageResource(R.drawable.rating_1);
-        } else {
-            holder.imgRate.setImageResource(R.drawable.rating_2);
+        try {
+            Service service = listService.get(position);
+            Slider slider = listSlider.get(position);
+
+            if (position == 0) {
+                holder.imgRate.setImageResource(R.drawable.rating_0);
+            } else if (position == 1) {
+                holder.imgRate.setImageResource(R.drawable.rating_1);
+            } else {
+                holder.imgRate.setImageResource(R.drawable.rating_2);
+            }
+
+            Glide.with(context).load(slider.getImageUrl()).error(R.drawable.img_err).into(holder.imgContent);
+
+            holder.tvName.setText(service.getName());
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            holder.tvPrice.setText(formatter.format(service.getPrice().get(0)) + " vnđ");
+            holder.tvEndPrice.setText(formatter.format(service.getPrice().get(1)) + " vnđ");
+        } catch (Exception e) {
+            Toast.makeText(context, "Lỗi hệ thống", Toast.LENGTH_SHORT).show();
         }
 
-        Glide.with(context).load(slider.getImageUrl()).error(R.drawable.img_err).into(holder.imgContent);
-
-        holder.tvName.setText(service.getName());
-        DecimalFormat formatter = new DecimalFormat("###,###,###");
-        holder.tvPrice.setText(formatter.format(service.getPrice().get(0)) + " vnđ");
-        holder.tvEndPrice.setText(formatter.format(service.getPrice().get(1)) + " vnđ");
     }
 
     @Override
