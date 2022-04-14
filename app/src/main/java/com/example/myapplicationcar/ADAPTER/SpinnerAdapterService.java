@@ -33,7 +33,7 @@ public class SpinnerAdapterService extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return Long.parseLong(list.get(i).getId());
     }
 
     @Override
@@ -42,6 +42,7 @@ public class SpinnerAdapterService extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.item_spinner_ct,viewGroup, false);
         }
         TextView tvName = view.findViewById(R.id.sp_item);
+
         Service service = list.get(i);
         tvName.setText(service.getName());
         return view;
