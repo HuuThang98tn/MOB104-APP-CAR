@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="3dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +35,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginLeft="16dp"
-            android:text="Thông tin về phía chúng tôi"
+            android:text="Thông tin"
             android:textColor="#000"
             android:textSize="16dp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                 android:background="#ffffff">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/img_company"
                     android:layout_width="match_parent"
                     android:layout_height="148dp"
                     android:scaleType="fitXY"
@@ -78,7 +78,7 @@
                     android:background="#B36C92F4"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2">
+                    app:layout_constraintTop_toBottomOf="@+id/img_company">
 
                     <TextView
                         android:id="@+id/textView4"

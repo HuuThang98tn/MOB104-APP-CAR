@@ -35,7 +35,7 @@ public class ServiceFragment extends Fragment {
     private SpinnerAdapterService spinnerAdapterService;
     private FirebaseFirestore db;
     private List<Service> listService;
-    private ArrayList<Service> listSpinner;
+    private List<Service> listSpinner;
     private Button btnNext;
     private FragmentManager fg;
 
@@ -67,7 +67,7 @@ public class ServiceFragment extends Fragment {
 
         getMultipleData();
 
-        spinnerAdapterService = new SpinnerAdapterService(getActivity(), listSpinner);
+        spinnerAdapterService = new SpinnerAdapterService(getActivity(), listService);
         spService.setAdapter(spinnerAdapterService);
 
         btnNext.setOnClickListener(new View.OnClickListener() {

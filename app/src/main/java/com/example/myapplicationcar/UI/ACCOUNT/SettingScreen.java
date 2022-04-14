@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +30,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplicationcar.R;
+import com.example.myapplicationcar.UI.HISTORY.HistoryScreen;
+import com.example.myapplicationcar.UI.HOME.HomeScreen;
 import com.example.myapplicationcar.UI.SCREENACCOUNT.ScreenLogin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -40,7 +44,7 @@ public class SettingScreen extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
-
+    BottomNavigationView mBottomNavigationView;
     ImageView imageView, mCamera;
     TextView mEmailUser;
     LinearLayout mLogout, mCallPhone, mInformation;
@@ -74,7 +78,26 @@ public class SettingScreen extends AppCompatActivity {
         mClickEmail = findViewById(R.id.email_user);
         mClickPass = findViewById(R.id.updatePass_user);
         mClickCamera = findViewById(R.id.constraint_1);
+        mBottomNavigationView = findViewById(R.id.st_bottomTab);
 
+        mBottomNavigationView.setSelectedItemId(R.id.action_account);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        startActivity(new Intent(SettingScreen.this, HomeScreen.class));
+                        return true;
+                    case R.id.action_history:
+                        startActivity(new Intent(SettingScreen.this, HistoryScreen.class));
+                        return true;
+                    case R.id.action_account:
+
+                        return true;
+                }
+                return false;
+            }
+        });
 
     }
 
