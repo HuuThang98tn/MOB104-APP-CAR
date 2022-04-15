@@ -4,46 +4,63 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.myapplicationcar.MODEL.Service;
 import com.example.myapplicationcar.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SpinnerAdapterService extends BaseAdapter {
-    private Context context;
-    private List<Service> list;
-
-    public SpinnerAdapterService(Context context, List<Service> list) {
+public class SpinnerAdapterService extends ArrayAdapter<Service>{
+    Context context;
+    List<Service> list;
+    public SpinnerAdapterService(@NonNull Context context, @NonNull List<Service> objects) {
+        super(context, 0, objects);
+        this.list = objects;
         this.context = context;
-        this.list = list;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return list != null ? list.size() : 0;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return list.get(i);
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.item_spinner_ct,viewGroup, false);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View view = convertView;
+        if (view == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(R.layout.item_spinner_ct, null);
         }
-        TextView tvName = view.findViewById(R.id.sp_item);
-        Service service = list.get(i);
-        tvName.setText(service.getName());
+        if (list == null){
+
+        }
+        Service service = list.get(position);
+        if (service != null) {
+            TextView tvTenSach = view.findViewById(R.id.sp_item);
+            tvTenSach.setText(service.getName());
+        }
+
+        return view;
+    }
+
+    @Override
+    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View view = convertView;
+        if (view == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(R.layout.item_spinner_ct, null);
+        }
+        if (list == null){
+
+        }
+        Service service = list.get(position);
+        if (service != null) {
+            TextView tvTenSach = view.findViewById(R.id.sp_item);
+            tvTenSach.setText(service.getName());
+        }
+
         return view;
     }
 }

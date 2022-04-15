@@ -106,6 +106,7 @@
                     android:lineHeight="24dp"
                     android:text="@string/textInfo"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -267,8 +268,8 @@
                         android:text="Phone :"
                         android:textColor="@color/black"
                         android:textSize="18dp"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:textStyle="bold"></TextView>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

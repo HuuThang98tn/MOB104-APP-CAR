@@ -54,7 +54,7 @@ public class HomeScreen extends AppCompatActivity {
     private ImageView imgAvatar, imgBanner;
     private FirebaseFirestore db;
     private DatabaseReference mDatabase;
-    private List<Slider> listSlider;
+    private List<String> listSlider;
     private ShimmerFrameLayout mShimmerFrameLayout, mShBanner;
     private SliderAdapter sliderAdapter;
     private List<Service> listService;
@@ -86,24 +86,10 @@ public class HomeScreen extends AppCompatActivity {
         listService = new ArrayList<>();
 
         getMultipleData();
-        addPostEventListener();
+        getDataSlider();
         getBanner();
 
         sliderAdapter = new SliderAdapter(listService, listSlider, this);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mShimmerFrameLayout.stopShimmer();
-                mShimmerFrameLayout.setVisibility(View.GONE);
-                rvSlider.setVisibility(View.VISIBLE);
-
-                mShBanner.stopShimmer();
-                mShBanner.setVisibility(View.GONE);
-                imgBanner.setVisibility(View.VISIBLE);
-            }
-        }, 2000);
-
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rvSlider.setLayoutManager(layoutManager);
@@ -119,9 +105,11 @@ public class HomeScreen extends AppCompatActivity {
                         return true;
                     case R.id.action_history:
                         startActivity(new Intent(HomeScreen.this, HistoryScreen.class));
+                        finish();
                         return true;
                     case R.id.action_account:
                         startActivity(new Intent(HomeScreen.this, SettingScreen.class));
+                        finish();
                         return true;
                 }
                 return false;
@@ -145,7 +133,7 @@ public class HomeScreen extends AppCompatActivity {
         menuCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mNumberPhone = "0385169494";
+                String mNumberPhone = "02466618648";
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mNumberPhone)));
             }
         });
@@ -161,6 +149,14 @@ public class HomeScreen extends AppCompatActivity {
                 startActivity(new Intent(HomeScreen.this, ServiceScreen.class));
             }
         });
+    }
+
+    private void getDataSlider() {
+        listSlider.add(0,"https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Slider%2Fslider_1.jpg?alt=media&token=f9d94e16-a142-4c91-9598-8e12ba5f87e0");
+        listSlider.add(1, "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Slider%2Fslider_2.jpg?alt=media&token=1442f49d-d0df-467c-b482-b3a98a4f6305");
+        listSlider.add(2, "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Slider%2Fslider_3.jpg?alt=media&token=ed441794-b287-4fd2-9690-307179862532");
+        listSlider.add(3, "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Slider%2Fslider_4.jpg?alt=media&token=dc18f196-e46d-4896-8be4-8d1ddc633b40");
+        listSlider.add(4, "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Slider%2Fslider_5.jpg?alt=media&token=2bee7cd0-2424-472f-bbbd-4889299525d5");
     }
 
     private void initUI() {
@@ -215,11 +211,20 @@ public class HomeScreen extends AppCompatActivity {
                                 service.setNote((String) document.get("note"));
                                 service.setType((String) document.get("type"));
                                 service.setTime((String) document.get("time"));
-                                service.setPrice((ArrayList<String>) document.get("price"));
+                                service.setPrice((ArrayList<Integer>) document.get("price"));
                                 listService.add(service);
                             }
                             Collections.reverse(listService);
 
+                            mShimmerFrameLayout.stopShimmer();
+                            mShimmerFrameLayout.setVisibility(View.GONE);
+                            rvSlider.setVisibility(View.VISIBLE);
+
+                            mShBanner.stopShimmer();
+                            mShBanner.setVisibility(View.GONE);
+                            imgBanner.setVisibility(View.VISIBLE);
+
+                            sliderAdapter.notifyDataSetChanged();
                         } else {
                             Log.d("errrrr", "Error getting documents: ", task.getException());
                         }
@@ -227,24 +232,26 @@ public class HomeScreen extends AppCompatActivity {
                 });
     }
 
-    private void addPostEventListener() {
-        ValueEventListener postListener = new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                    listSlider.add(childDataSnapshot.getValue(Slider.class));
-                }
-                listSlider.sort(Comparator.comparing(Slider::getId));
-            }
 
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mDatabase.addValueEventListener(postListener);
-    }
+//    private void addPostEventListener() {
+//        ValueEventListener postListener = new ValueEventListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.N)
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+//                    listSlider.add(childDataSnapshot.getValue(Slider.class));
+//                }
+//                listSlider.sort(Comparator.comparing(Slider::getId));
+//            }
+//
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        };
+//        mDatabase.addValueEventListener(postListener);
+//    }
 
 }

@@ -26,9 +26,10 @@ public class InformationScreen extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        getBanner();
     }
     public void getBanner() {
-        String photoUrl = "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Banner%2Fbanner_1.jpg?alt=media&token=f3bed712-8dba-4386-8602-45cbb9cacc8a";
+        String photoUrl = "https://firebasestorage.googleapis.com/v0/b/mob104-auto-care.appspot.com/o/Banner%2Fbanner_2.jpg?alt=media&token=2b246630-1fe0-48c3-9e51-9c6b65d019ed";
 
         Glide.with(this).load(photoUrl).error(R.drawable.img_df_user).into(imgBanner);
     }

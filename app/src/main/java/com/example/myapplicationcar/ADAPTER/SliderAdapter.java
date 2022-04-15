@@ -1,6 +1,7 @@
 package com.example.myapplicationcar.ADAPTER;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplicationcar.MODEL.Service;
-import com.example.myapplicationcar.MODEL.Slider;
 import com.example.myapplicationcar.R;
+import com.example.myapplicationcar.UI.SERVICE.ServiceScreen;
 
 import java.text.DecimalFormat;
 import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder> {
     private List<Service> listService;
-    private List<Slider> listSlider;
+    private List<String> listSlider;
     private Context context;
 
-    public SliderAdapter(List<Service> listService, List<Slider> listSlider, Context context) {
+    public SliderAdapter(List<Service> listService, List<String> listSlider, Context context) {
         this.listService = listService;
         this.listSlider = listSlider;
         this.context = context;
@@ -39,9 +40,8 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Service service = listService.get(position);
-        Slider slider = listSlider.get(position);
 
-        if (service != null && slider != null){
+        if (service != null ){
             if (position == 0) {
                 holder.imgRate.setImageResource(R.drawable.rating_0);
             } else if (position == 1) {
@@ -50,12 +50,18 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder
                 holder.imgRate.setImageResource(R.drawable.rating_2);
             }
 
-            Glide.with(context).load(slider.getImageUrl()).error(R.drawable.img_err).into(holder.imgContent);
+            Glide.with(context).load(listSlider.get(position)).error(R.drawable.img_err).into(holder.imgContent);
 
             holder.tvName.setText(service.getName());
             DecimalFormat formatter = new DecimalFormat("###,###,###");
             holder.tvPrice.setText(formatter.format(service.getPrice().get(0)) + " vnđ");
             holder.tvEndPrice.setText(formatter.format(service.getPrice().get(1)) + " vnđ");
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    context.startActivity(new Intent(context, ServiceScreen.class));
+                }
+            });
         }
     }
 

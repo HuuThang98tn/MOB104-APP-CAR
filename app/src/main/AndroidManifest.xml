@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationCar">
         <activity
+            android:name=".UI.HISTORY.DetailHistory"
+            android:exported="false" />
+        <activity
             android:name=".UI.SERVICE.ServiceScreen"
             android:exported="false" />
         <activity

@@ -8,12 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myapplicationcar.R;
+import com.example.myapplicationcar.UI.HOME.HomeScreen;
 
 public class ServiceScreen extends AppCompatActivity {
 
@@ -67,6 +69,11 @@ public class ServiceScreen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        openDialog();
+    }
+
     void openDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -77,7 +84,8 @@ public class ServiceScreen extends AppCompatActivity {
         builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                onBackPressed();
+                startActivity(new Intent(ServiceScreen.this, HomeScreen.class));
+                finishAffinity();
             }
         });
 

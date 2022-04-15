@@ -87,12 +87,13 @@ public class SettingScreen extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         startActivity(new Intent(SettingScreen.this, HomeScreen.class));
+                        finish();
                         return true;
                     case R.id.action_history:
                         startActivity(new Intent(SettingScreen.this, HistoryScreen.class));
+                        finish();
                         return true;
                     case R.id.action_account:
-
                         return true;
                 }
                 return false;
@@ -173,7 +174,7 @@ public class SettingScreen extends AppCompatActivity {
     }
 
     void callPhone() {
-        String mNumberPhone = "0385169494";
+        String mNumberPhone = "02466618648";
         mCallPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,7 +196,7 @@ public class SettingScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SettingScreen.this, InformationScreen.class));
-
+                finish();
             }
         });
     }

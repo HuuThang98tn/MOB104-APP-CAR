@@ -1,16 +1,17 @@
 package com.example.myapplicationcar.MODEL;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Service {
+public class Service implements Serializable {
     private String id;
     private String name;
     private String type;
-    private ArrayList<String> price;
+    private ArrayList<Integer> price;
     private String note;
     private String time;
 
-    public Service(String id, String name, String type, ArrayList<String> price, String note, String time) {
+    public Service(String id, String name, String type, ArrayList<Integer> price, String note, String time) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -46,11 +47,11 @@ public class Service {
         this.type = type;
     }
 
-    public ArrayList<String> getPrice() {
+    public ArrayList<Integer> getPrice() {
         return price;
     }
 
-    public void setPrice(ArrayList<String> price) {
+    public void setPrice(ArrayList<Integer> price) {
         this.price = price;
     }
 
